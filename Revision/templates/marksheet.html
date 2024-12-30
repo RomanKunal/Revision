@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marksheet Form</title>
+    <link rel="stylesheet" href="/static/marksheet.css"> <!-- External CSS Link -->
+</head>
+<body>
+    <div class="form-container">
+        <h2>Marksheet Form</h2>
+        <form action="/marksheet/" method="post" id="marksForm">
+            {% csrf_token %}
+            <!-- Name Field -->
+            <div class="form-group">
+                <label for="name">Student Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter student name" required>
+            </div>
+
+            <!-- Subject 1 Marks -->
+            <div class="form-group">
+                <label for="subject1">Subject 1 Marks:</label>
+                <input type="number" id="subject1" name="subject1" placeholder="Enter marks" required>
+            </div>
+
+            <!-- Subject 2 Marks -->
+            <div class="form-group">
+                <label for="subject2">Subject 2 Marks:</label>
+                <input type="number" id="subject2" name="subject2" placeholder="Enter marks" required>
+            </div>
+
+            <!-- Subject 3 Marks -->
+            <div class="form-group">
+                <label for="subject3">Subject 3 Marks:</label>
+                <input type="number" id="subject3" name="subject3" placeholder="Enter marks" required>
+            </div>
+        <!-- Total -->
+        <div class="form-group">
+            <label for='total'>Total Marks:</label>
+            <input type="number" id="total" name="total" value="{{ total }}" readonly>
+        </div>
+        <div class="form-group">
+            <label for='percentage'>Percentage:</label>
+            <input type="text" id="percentage" name="percentage" value="{{ percentage }}" readonly>
+        </div>
+        <div class="form-group">
+            <button type="submit">Calculate</button>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    {% comment %} 
+    <h1>Welcome to the home page</h1>
+    <h2>Hi, {{name}}</h2>
+    <h3>My age is {{age}} years old</h3> 
+    {% endcomment %}
+
+    <h1>Welcome to the home page</h1>
+    {% for n in data %}
+    <div>
+        <h2>Hi, {{ n.name }}</h2>
+        <h3>My age is {{ n.age }} years old</h3>
+    </div>
+    {% endfor %}
+
+    {% for n in data %}
+    <div>
+        <h2>Hi, {{ n.name }}</h2>
+        {% if n.age > 27 %}
+            <h3>My age is {{ n.age }} years old</h3>
+        {% endif %}
+    </div>
+    {% endfor %}
+</body>
+</html>
